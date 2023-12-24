@@ -24,7 +24,7 @@ module.exports = {
   },
   mode: "development",
   plugins: [
-    newHtmlWebpackPlugin({
+    new HtmlWebpackPlugin({
       template: path.resolve(__dirname, "..", "./src/index.html"),
     }),
   ],
