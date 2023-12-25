@@ -2,8 +2,16 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
   entry: path.resolve(__dirname, "..", "./src/index.tsx"),
+  devServer: {
+    static: "./public2",
+    hot: true,
+  },
   resolve: {
     extensions: [".tsx", ".ts", ".js"],
+    alias: {
+      src2: path.resolve(__dirname, "../src"),
+      img: path.resolve(__dirname, "../src/images"),
+    },
   },
   module: {
     rules: [
