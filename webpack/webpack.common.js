@@ -1,5 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const FileManagerPlugin = require("filemanager-webpack-plugin");
+
 module.exports = {
   entry: path.resolve(__dirname, "..", "./src/index.tsx"),
   devServer: {
@@ -39,6 +41,21 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, "..", "./src/index.html"),
+    }),
+    new FileManagerPlugin({
+      events: {
+        onStart: {
+          delete: ["build"],
+        },
+        onEnd: {
+          copy: [
+            {
+              source: "public2",
+              destination: "build",
+            },
+          ],
+        },
+      },
     }),
   ],
 };
