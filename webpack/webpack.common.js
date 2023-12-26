@@ -1,6 +1,8 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const FileManagerPlugin = require("filemanager-webpack-plugin");
+const webpack = require("webpack");
+require("dotenv").config();
 
 module.exports = {
   entry: path.resolve(__dirname, "..", "./src/index.tsx"),
@@ -56,6 +58,9 @@ module.exports = {
           ],
         },
       },
+    }),
+    new webpack.DefinePlugin({
+      "process.env.TEST_VAR": JSON.stringify(process.env.TEST_VAR),
     }),
   ],
 };

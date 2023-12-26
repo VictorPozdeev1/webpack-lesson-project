@@ -15,6 +15,7 @@ const App = (): JSX.Element => {
       <img height="200px" width="fitContent" src={image2} alt="" />
       <img height="100px" width="fitContent" src={ra} alt="" />
       <img src="/butterfly.png" alt="" />
+      <p>process.env.TEST_VAR={process.env.TEST_VAR}!</p>
     </>
   );
 };
